@@ -5,24 +5,21 @@
 </script>
 
 <template>
-  <nav>
-    <router-link to="/home">home</router-link>
-    <router-link to="/about">about</router-link>
+  <!-- <nav>
+    <router-link to="/home">home</router-link> |
+    <router-link to="/about">about</router-link> |
     <router-link to="/login">login</router-link>
-  </nav>
+  </nav> -->
   <router-view />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+* {
+  padding: 0;
+  margin: 0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+html, body, #app {
+  width: 100%;
+  height: 100%;
 }
 </style>
