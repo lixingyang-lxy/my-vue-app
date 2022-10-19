@@ -35,7 +35,9 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from "vue";
 export default defineComponent({
-  submitForm() {},
+  submitForm(loginForm) {
+    
+  },
   resetForm() {},
   setup(props, ctx) {
     const data = reactive({
@@ -45,7 +47,11 @@ export default defineComponent({
       },
       rules: {
         username: [
-          { required: true, message: "username is required", trigger: "blur" },
+          {
+            required: true,
+            message: "username is required",
+            trigger: "blur",
+          },
           {
             min: 6,
             max: 24,
@@ -54,7 +60,11 @@ export default defineComponent({
           },
         ],
         password: [
-          { required: true, message: "password is required", trigger: "blur" },
+          {
+            required: true,
+            message: "password is required",
+            trigger: "blur",
+          },
           {
             min: 6,
             max: 24,
@@ -64,6 +74,18 @@ export default defineComponent({
         ],
       },
     });
+
+    const submitForm = (formEl: any | undefined) => {
+      if (!formEl) return;
+      formEl.validate((valid: any) => {
+        if (valid) {
+          console.log("submit!");
+        } else {
+          console.log("error submit!");
+          return false;
+        }
+      });
+    };
 
     return {
       ...toRefs(data),
@@ -77,7 +99,7 @@ export default defineComponent({
   width: 400px;
   padding: 30px;
   height: 120px;
-  background: #fff;
-  border: 1px solid #ccc;
+  background: rgb(136, 111, 177);
+  border: 1px solid rgb(133, 88, 88);
 }
 </style>
